@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>登陆成功</h1>
+<button data-href="/java" onclick="check(this)">检测java角色</button>
+<button data-href="/docker" onclick="check(this)">检测docker角色</button>
+<button data-href="/php" onclick="check(this)">检测php角色</button>
+<hr>
+<button data-href="/java/c" onclick="check(this)">检测java角色 c 权限</button>
+<button data-href="/docker/d" onclick="check(this)">检测docker角色 d 权限</button>
+<button data-href="/php/d" onclick="check(this)">检测php角色 d 权限</button>
+<hr>
+<button data-href="/custom" onclick="check(this)">检测自定义匹配器</button>
+<a href="/logout">退出登录</a>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    function check(e) {
+        var url = e.dataset.href;
+        $.ajax({
+            type: "POST",
+            url: url,
+            success: function (e) {
+                alert(e)
+            },
+            error: function (e, a, b) {
+                console.log(e);
+                alert("没有权限")
+            }
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,22 @@
+server:
+  port: 8088
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/sp
+  security:
+    user:
+      name: user
+      password: admin
+      roles: user,admin
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
